@@ -28,18 +28,17 @@ export default function App() {
     FilmleriAl();
   }, []);
 
-  const KaydedilenlerListesineEkle = (id) => {
+  const KaydedilenlerListesineEkle = (movie) => {
     // Burası esnek. Aynı filmin birden fazla kez "saved" e eklenmesini engelleyin
+    const isSaved = saved.find((s) => s.id == movie.id);
+    if (isSaved == null) {
+      setSaved([...saved, movie]);
+    }
   };
 
   return (
     <div>
-      <KaydedilenlerListesi
-        list={[
-          /* Burası esnek */
-          saved,
-        ]}
-      />
+      <KaydedilenlerListesi list={saved} />
 
       <Switch>
         <Route path="/" exact>

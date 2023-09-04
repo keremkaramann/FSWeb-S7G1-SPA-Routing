@@ -51,7 +51,12 @@ export default function Film({ KaydedilenlerListesineEkle }) {
           </div>
         ))}
       </div>
-      <div className="save-button">Kaydet</div>
+      <div
+        className="save-button"
+        onClick={() => KaydedilenlerListesineEkle(movie)}
+      >
+        Kaydet
+      </div>
     </div>
   );
 }
